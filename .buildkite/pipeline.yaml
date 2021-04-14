@@ -5,8 +5,8 @@ steps:
       # Build
       echo "$BUILDKITE_COMMIT"
       export VERSION=$(date -u +"%Y-%m-%dT%H-%M-%SUTC") # try using git commit hash
-      docker build -t xgboost:$VERSION .
+      docker build -t xgboost:$BUILDKITE_COMMIT .
 
       # Tag and push image with version number to repository
-      docker tag xgboost:$VERSION gcr.io/tink-containers/xgboost:$VERSION
-      gcloud docker -- push gcr.io/tink-containers/xgboost:$VERSION
+      docker tag xgboost:$BUILDKITE_COMMIT gcr.io/tink-containers/xgboost:$BUILDKITE_COMMIT
+      gcloud docker -- push gcr.io/tink-containers/xgboost:$BUILDKITE_COMMIT
