@@ -3,6 +3,7 @@ steps:
     timeout_in_minutes: 10
     command: |
       # Build
+      echo "$BUILDKITE_COMMIT"
       export VERSION=$(date -u +"%Y-%m-%dT%H-%M-%SUTC") # try using git commit hash
       docker build -t xgboost:$VERSION .
 
