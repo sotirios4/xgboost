@@ -4,7 +4,6 @@ steps:
     command: |
       # Build
       echo "$BUILDKITE_COMMIT"
-      export VERSION=$(date -u +"%Y-%m-%dT%H-%M-%SUTC") # try using git commit hash
       docker build -t xgboost:$BUILDKITE_COMMIT .
 
       # Tag and push image with version number to repository
